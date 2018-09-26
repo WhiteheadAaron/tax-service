@@ -5,6 +5,9 @@
 
 $(document).ready(function () {
 
+  console.log('hello');
+  eventHandlers.render();
+
   eventHandlers.handleClicks();
   api.getItems((items) => {
     items.forEach((item) => store.items.push(item));

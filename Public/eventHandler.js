@@ -10,7 +10,7 @@ const eventHandlers = (function () {
             <h2>Randy Whitehead</h2>
             <h3>CPA</h3>
         </div>
-        <img src="./Images/randy.jpg" class="aboutMeImage">
+        <img src="images/randy.jpg" class="aboutMeImage">
         <div class="aboutInfo">
             <p>My name is Randy, and I have been running my own tax business for people in the greater
                 Madison area for 10? years. My full time day job is working for the City of Madison as a
@@ -90,10 +90,10 @@ const eventHandlers = (function () {
         </form>
         <h4>Having issues with the form, or prefer to contact me directly? You can reach me at the phone number or e-mail below.</h4>
         <div class="contactPhoneImg">
-            <img src="./Images/phone.jpg" class="phoneImg">
+            <img src="images/phone.jpg" class="phoneImg">
         </div>
         <div class="contactEmailImg">
-            <img src="./Images/email.jpg" class="emailImg">
+            <img src="images/email.jpg" class="emailImg">
         </div>
         <div class="contactPhone">
             <p>(608) 333-1090</p>
@@ -155,15 +155,15 @@ const eventHandlers = (function () {
     <div class="contactGrid">
 
         <h3>Thank you! I will contact you as soon as possible to schedule your appointment! Sit back and relax, and I'll handle your taxes for you.</h3>
-        <img src="Images/giphy.gif">
+        <img src="images/giphy.gif">
         
         <h4>Need to contact me directly? You can reach me at the phone
             number or e-mail below.</h4>
         <div class="contactPhoneImg">
-            <img src="./Images/phone.jpg" class="phoneImg">
+            <img src="images/phone.jpg" class="phoneImg">
         </div>
         <div class="contactEmailImg">
-            <img src="./Images/email.jpg" class="emailImg">
+            <img src="images/email.jpg" class="emailImg">
         </div>
         <div class="contactPhone">
             <p>(608) 333-1090</p>
@@ -209,6 +209,7 @@ const eventHandlers = (function () {
     let nav;
 
     if (store.html === "aboutMe") {
+      console.log('works');
       display = aboutMeStuff;
       nav = aboutMeNav;
     }
@@ -290,11 +291,14 @@ const eventHandlers = (function () {
         phone,
         taxType
       };
+      store.items.push(newObj);
+      store.html = "contactMeSubmitted";
+      render();
       api.create('/results', newObj)
         .then(() => {
-          store.items.push(newObj);
-          store.html = "contactMeSubmitted";
-          render();
+          // store.items.push(newObj);
+          // store.html = "contactMeSubmitted";
+          // render();
         });
     });
   }
